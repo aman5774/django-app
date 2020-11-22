@@ -1,0 +1,9 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<div class="main-message">
+    <h1>Welcome to To-Do Application.</h1>
+    {% if not user.is_authenticated %}
+        <h2>Please login to continue</h2>
+    {% endif %}
+</div>
+{% endblock %}
