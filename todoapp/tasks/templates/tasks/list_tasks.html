@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+    <a href="{% url 'tasks:create' %}">Create a new task</a>
+    <p>Filter task by:</p>
+
+    <h3>List of tasks:</h3>
+    {% for task in tasks %}
+        <p>Task name: {{task.title}}</p>
+        <p>Description: {{task.description}}</p>
+        <p>Priority: {{task.priority}}</p>
+        <hr/>
+    {% endfor%}
+{% endblock %}

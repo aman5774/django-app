@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static from static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="{% static 'styles.css'%}" />
+</head>
+<body>
+    <header>
+        <nav>
+            {% if user.is_authenticated %}
+                <form class="logout-form" action="{% url 'accounts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Logout">
+                </form>
+            {% else %}
+                <a class="user-login" href="{% url 'accounts:login' %}">Login</a>
+            {% endif%}
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
